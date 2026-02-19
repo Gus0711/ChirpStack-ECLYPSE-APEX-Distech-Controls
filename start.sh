@@ -1,7 +1,5 @@
 #!/bin/bash
-
-exec 2>&1
-exec > /logs/chirpstack.log
+exec > /logs/chirpstack.log 2>&1
 
 echo "=== START ==="
 date
@@ -28,12 +26,15 @@ echo "=== Start Mosquitto ==="
 mosquitto -d
 sleep 2
 
+echo "=== Start Gateway Bridge ==="
+/usr/bin/chirpstack-gateway-bridge --config /etc/chirpstack-gateway-bridge/chirpstack-gateway-bridge.toml &
+sleep 2
+
 echo "=== Check config ==="
 ls -la /etc/chirpstack/
 
 echo "=== Start ChirpStack ==="
 /usr/bin/chirpstack --config /etc/chirpstack &
-
 sleep 5
 
 echo "=== Start REST API ==="

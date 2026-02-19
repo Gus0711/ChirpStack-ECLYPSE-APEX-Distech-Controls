@@ -1,0 +1,10 @@
+[[regions]]
+id="eu868"
+description="EU868"
+common_name="EU868"
+
+[regions.gateway.backend]
+enabled="semtech_udp"
+
+[regions.gateway.backend.semtech_udp]
+udp_bind="0.0.0.0:1700"

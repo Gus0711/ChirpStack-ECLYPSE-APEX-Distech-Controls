@@ -6,13 +6,7 @@ servers=["redis://localhost:6379"]
 
 [network]
 net_id="000000"
+enabled_regions=["eu868"]
 
 [api]
 secret="acb123"
-
-[[regions]]
-name="eu868"
-common_name="EU868"
-
-[[regions.gateways]]
-server="0.0.0.0:1700"
