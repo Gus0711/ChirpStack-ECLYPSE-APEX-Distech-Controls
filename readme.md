@@ -1,35 +1,5 @@
 # Déploiement de ChirpStack sur ECLYPSE APEX (Distech Controls)
 
-## 🚀 Installation rapide
-
-Tu veux juste l'installer rapidement sur ton APEX ? Fais ceci :
-
-Image Docker disponible : `augustind/chirpstack-apex:4.12.1-v1`
-
-Configuration du conteneur :
-
-```json
-{
-  "Image": "augustind/chirpstack-apex:4.12.1-v1",
-  "HostConfig": {
-    "Binds": ["chirpstack-logs:/logs"],
-    "PortBindings": {
-      "8080/tcp": [{"HostPort": "50081"}],
-      "8090/tcp": [{"HostPort": "50090"}]
-    },
-    "RestartPolicy": {"Name": "unless-stopped"},
-    "NetworkMode": "bridge"
-  }
-}
-```
-
-- **50081** → Interface web ChirpStack
-- **50090** → API REST + Swagger
-
-Login par défaut : `admin` / `admin`
-
----
-
 ## Prérequis
 
 - Accès à l'interface web ECLYPSE Facilities (port 443)
